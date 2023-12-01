@@ -1,0 +1,23 @@
+.containerlist {
+  height: 94vh;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;;
+}
+
+#card-list {
+  width: 79%;
+  height: 25%;
+  border-radius: 15px;
+  border-color: rgba(136, 68, 6, 1);
+  box-shadow: 0 0 3px rgba(136, 68, 6, 1);
+}
+
+#btn-list {
+  position: inherit;
+  margin-bottom: 20%;
+  margin-left: 72%;
+}

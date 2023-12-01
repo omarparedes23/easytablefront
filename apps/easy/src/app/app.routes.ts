@@ -1,7 +1,9 @@
 import { Route } from '@angular/router';
 import {HomeComponent} from '@easy/home';
+import {ListComponent} from '@easy/list';
 
 
 export const appRoutes: Route[] = [
-    { path: '',pathMatch:'full',component: HomeComponent}
+    { path: 'home',component: HomeComponent},
+    { path: 'list',component: ListComponent}
 ];

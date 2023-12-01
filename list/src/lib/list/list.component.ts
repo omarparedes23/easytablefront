@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
-  selector: 'easy-home',
+  selector: 'easy-list',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './list.component.html',
+  styleUrl: './list.component.scss',
 })
-export class HomeComponent {}
+export class ListComponent {}
