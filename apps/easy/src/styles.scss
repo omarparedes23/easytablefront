@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  width: 100%; /* Largeur souhaitée, par exemple 100% de la largeur de la fenêtre */
+  height: 100%; /* Hauteur souhaitée, par exemple 100% de la hauteur de la fenêtre */
+  margin: 0; /* Supprime la marge par défaut du body */
+  padding: 0; /* Supprime le remplissage par défaut du body */
+}
