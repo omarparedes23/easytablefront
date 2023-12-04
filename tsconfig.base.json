@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@easy/api": ["api/src/index.ts"],
       "@easy/header": ["header/src/index.ts"],
       "@easy/home": ["home/src/index.ts"],
       "@easy/list": ["list/src/index.ts"],

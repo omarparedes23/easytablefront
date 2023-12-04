@@ -1,45 +1,21 @@
-<div class="containerlist">
+<div class="containerlist" *ngFor="let resto of restaurantsArray">
   <div class="card mb-3" id="card-list">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+        <img src="{{ resto.url }}" class="img-fluid rounded-start" alt="..." />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Nom du restaurant</h5>
-          <p class="card-text">Description du restaurant</p>
-          <p class="card-text"><small class="text-body-secondary">Liste des menus</small></p>
-          <button type="button" class="btn btn-primary" id="btn-list">Réserver</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card mb-3" id="card-list">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Nom du restaurant</h5>
-          <p class="card-text">Description du restaurant</p>
-          <p class="card-text"><small class="text-body-secondary">Liste des menus</small></p>
-          <button type="button" class="btn btn-primary" id="btn-list">Réserver</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card mb-3" id="card-list">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Nom du restaurant</h5>
-          <p class="card-text">Description du restaurant</p>
-          <p class="card-text"><small class="text-body-secondary">Liste des menus</small></p>
-          <button type="button" class="btn btn-primary" id="btn-list">Réserver</button>
+          <h5 class="card-title">{{ resto.nom }}</h5>
+          <p class="card-text">{{ resto.presentation }}</p>
+          <p class="card-text">
+            <small class="text-body-secondary">{{
+              resto.restaurant_type
+            }}</small>
+          </p>
+          <button type="button" class="btn btn-primary" id="btn-list">
+            Réserver
+          </button>
         </div>
       </div>
     </div>

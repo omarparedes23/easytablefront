@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  justify-content: space-evenly;;
+  justify-content: space-evenly;
 }
 
 #card-list {
@@ -20,4 +20,8 @@
   position: inherit;
   margin-bottom: 20%;
   margin-left: 72%;
+}
+.rounded-start {
+  width: 180px;
+  height: 130px;
 }
