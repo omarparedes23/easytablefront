@@ -18,7 +18,8 @@
       "@easy/header": ["header/src/index.ts"],
       "@easy/home": ["home/src/index.ts"],
       "@easy/list": ["list/src/index.ts"],
-      "@easy/login": ["login/src/index.ts"]
+      "@easy/login": ["login/src/index.ts"],
+      "@easy/reservation": ["reservation/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
