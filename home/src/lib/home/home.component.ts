@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  constructor( private router1: Router) {}
-ngOnInit(): void {
-  console.log("list");
-}
+  constructor( private router: Router) {}
+  ngOnInit(): void {
+    console.log("list");
+  }
   onListeResto():void{
-    this.router1.navigateByUrl('list');
+    this.router.navigateByUrl('list');
 
   }
 }
