@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from '@easy/api';
+import { ApiService, LocalService } from '@easy/api';
 import { Irestaurant } from '@easy/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ListComponent implements OnInit {
   public restaurantsArray!: Irestaurant[];
-  constructor(private apiservice: ApiService,private router: Router) {}
+  constructor(private apiservice: ApiService,private router: Router,private localStore: LocalService) {}
   ngOnInit(): void {
     this.obtenirlistaresto();
   }
@@ -25,8 +25,22 @@ export class ListComponent implements OnInit {
       this.restaurantsArray = p;
     });
   }
-  onLogin(idresto: number): void {
-    localStorage.setItem('currentResto', idresto.toString());
+  onLogin(restoid: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string ): void {
+    this.localStore.saveData('restoadresse',restoadresse)
+    this.localStore.saveData('restoid',restoid.toString())
+    this.localStore.saveData('restopresentation',restopresentation)
+    this.localStore.saveData('restotelephone',restotelephone)
+    this.localStore.saveData('restoemail',restoemail)
+
+
+    //console.log(restoid);
+    console.log(restoadresse);
+    //console.log(restopresentation);
+    //console.log(restotelephone);
+    //console.log(restoemail);
+
+
     this.router.navigateByUrl('login');
   }  
+
 }
