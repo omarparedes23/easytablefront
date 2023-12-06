@@ -1,12 +1,12 @@
-<div class="containerlist" *ngFor="let resto of restaurantsArray">
-  <div class="card mb-3" id="card-list">
+<div class="containerlist" >
+  <div class="card mb-3" id="card-list" *ngFor="let resto of restaurantsArray">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{ resto.url }}" class="img-fluid rounded-start" alt="..." />
+        <img src="{{ resto.url }}" class="img-fluid rounded-start" id="img-list" alt="..." />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{ resto.nom }}</h5>
+          <h5 class="card-title"><b>{{ resto.nom }}</b></h5>
           <p class="card-text">{{ resto.presentation }}</p>
           <p class="card-text">
             <small class="text-body-secondary">{{

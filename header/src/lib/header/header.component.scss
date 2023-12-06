@@ -4,7 +4,12 @@
   justify-content: center;
   background: rgb(27, 25, 25);
   align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
+
 h1 {
   color: white;
   align-self: center;
@@ -14,8 +19,6 @@ h1 {
   left: 7vh;
   position: absolute;
   width: 4vh;
-
-
 }
 
 .img-header {
