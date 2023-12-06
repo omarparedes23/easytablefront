@@ -12,6 +12,5 @@ export const appRoutes: Route[] = [
     { path: 'login',component: LoginComponent},
     { path: 'reservation',component: ReservationComponent},
     { path: 'signup',component: SignupComponent},
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: '**', redirectTo: 'home' }
 ];
