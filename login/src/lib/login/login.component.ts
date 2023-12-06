@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'easy-login',
@@ -8,4 +9,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {}
+export class LoginComponent {
+  constructor(private router: Router){}
+  onReservation():void{
+    this.router.navigateByUrl('reservation');
+  }
+}

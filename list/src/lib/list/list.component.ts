@@ -29,4 +29,5 @@ export class ListComponent implements OnInit {
     localStorage.setItem('currentResto', idresto.toString());
     this.router.navigateByUrl('login');
   }  
+
 }
