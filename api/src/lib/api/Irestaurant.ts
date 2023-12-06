@@ -9,4 +9,5 @@ export interface Irestaurant {
   presentation: string;
   restaurant_type: string;
   url: string;
+  adresse: string;
 }
