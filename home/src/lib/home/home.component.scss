@@ -1,9 +1,8 @@
 .containerhome {
-  background: url("./assets/bannerHome.JPG");
+  background: url("./assets/italian-food-concept-with-pasta-space-left.jpg");
   background-size: cover;
-  height: 94vh;
+  height: 100vh;
 };
-
 
 #bts1 {
   color: #000000;
@@ -11,13 +10,13 @@
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 1.9rem;
-  margin-top: 29%;
-  margin-left: 41%;
-  background-color: rgba(217, 217, 217, 1);
+  margin-top: 31%;
+  margin-left: 15%;
+  background-color: rgb(217, 217, 217);
   border: none;
   cursor: pointer;
   transition: 0.5s;
-
+  opacity: 0.8;
 }
 
 #bts1:hover {
