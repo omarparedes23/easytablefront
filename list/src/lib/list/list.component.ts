@@ -25,20 +25,14 @@ export class ListComponent implements OnInit {
       this.restaurantsArray = p;
     });
   }
-  onLogin(restoid: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string ): void {
-    this.localStore.saveData('restoadresse',restoadresse)
-    this.localStore.saveData('restoid',restoid.toString())
-    this.localStore.saveData('restopresentation',restopresentation)
-    this.localStore.saveData('restotelephone',restotelephone)
-    this.localStore.saveData('restoemail',restoemail)
-
-
-    //console.log(restoid);
-    console.log(restoadresse);
-    //console.log(restopresentation);
-    //console.log(restotelephone);
-    //console.log(restoemail);
-
+  onLogin(resto:Irestaurant): void {
+    //.id,resto.adresse,resto.presentation,resto.telephone,resto.email
+    //id: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string 
+    this.localStore.saveData('restoadresse',resto.adresse);
+    this.localStore.saveData('restoid',resto.id.toString());
+    this.localStore.saveData('restopresentation',resto.presentation);
+    this.localStore.saveData('restotelephone',resto.telephone);
+    this.localStore.saveData('restoemail',resto.email);
 
     this.router.navigateByUrl('login');
   }  
