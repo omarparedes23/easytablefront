@@ -1,18 +1,17 @@
-body {
-  height: 94vh;
-  font-family: Arial, sans-serif;
-  background-image: url(./assets/photo-1505935428862-770b6f24f629.avif);
-}
+
 
 .content-wrapper {
+  background-image: url(./assets/photo-1505935428862-770b6f24f629.avif);
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100% - 50px);
-  padding: 20px;
+  padding: 14%;
+  background-size: cover;
+  padding-bottom: 14.5%;
 }
 
-.left-panel, .right-panel {
+.left-panel {
   background-color: #fff;
   padding: 20px;
   margin: 10px;
@@ -20,6 +19,18 @@ body {
   max-width: 500px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 20px;
+  opacity: 0.9;
+}
+
+.right-panel {
+  background-color: #fff;
+  padding: 52px;
+  margin: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  opacity: 0.9;
 }
 
 h2 {
