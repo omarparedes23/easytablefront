@@ -18,10 +18,11 @@
   transition: 0.2s;
   height: 8%;
   margin-top: 27%;
-  margin-left: 27%;
+  margin-left: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: inset 0 0 10px #1b1b1a;
 }
 
 #bts1:hover {
@@ -29,4 +30,17 @@
   transition: 0.2s;
   color: rgb(255, 255, 255);
   transform: scale(0.9);
+}
+
+
+.img-home {
+  display: flex;
+  height: 20%;
+  width: 94%;
+  margin-left: 450%;
+  border-radius: 50%;
+  margin-top: 162%;
+  position: relative;
+  border: 5px solid rgb(12, 12, 12);
+
 }
