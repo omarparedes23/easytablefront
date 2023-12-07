@@ -10,7 +10,8 @@ import { Iclient } from './Iclient';
 })
 export class ApiService {
   //private urlApi = 'http://localhost:9000/employees';
-  private urlApirestaurants = 'http://localhost:9000/restaurants';
+  //private urlApirestaurants = 'http://localhost:9000/restaurants';
+  private urlApirestaurants = 'http://localhost:9000/restaurant/restaurants';
   private urlApiclients = 'http://localhost:9000/clients';
   private urlApiclient = 'http://localhost:9000/client/1';
   
@@ -19,6 +20,9 @@ export class ApiService {
   getRestaurants(): Observable<Irestaurant[]> {
     return this.http.get<Irestaurant[]>(this.urlApirestaurants);
   }
+  getRestaurant(id:number): Observable<Irestaurant> {
+    return this.http.get<Irestaurant>(`http://localhost:9000/restaurant/${id}`);
+  }    
   getClient(id:number): Observable<Iclient> {
     return this.http.get<Iclient>(`http://localhost:9000/client/${id}`);
   }  

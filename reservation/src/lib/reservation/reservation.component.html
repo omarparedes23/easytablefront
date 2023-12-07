@@ -1,14 +1,14 @@
 <easy-header></easy-header>
 <body>
   <div class="content-wrapper">
-    <div class="left-panel">
+    <div class="left-panel" *ngIf="restaurant$|async as resto">
       <div class="restaurant-info">
         <h2>La Rotonde 🍽️</h2>
         <form>
-          <input type="text" placeholder="{{restoadresse}}" name="address"  />
-          <textarea placeholder="{{restopresentation}}"></textarea>
-          <input type="text" placeholder="{{restotelephone}}" name="phone" />
-          <input type="email" placeholder="{{restoemail}}" name="email" />
+          <input type="text" placeholder="{{resto.rue}}" name="address"  />
+          <textarea placeholder="{{resto.presentation}}"></textarea>
+          <input type="text" placeholder="{{resto.telephone}}" name="phone" />
+          <input type="email" placeholder="{{resto.email}}" name="email" />
         </form>
       </div>
     </div>
