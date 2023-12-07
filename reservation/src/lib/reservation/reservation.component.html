@@ -4,7 +4,7 @@
       <div class="restaurant-info">
         <h2>La Rotonde 🍽️</h2>
         <form>
-          <input type="text" placeholder="{{restoadresse}}" name="address" />
+          <input type="text" placeholder="{{restoadresse}}" name="address"  />
           <textarea placeholder="{{restopresentation}}"></textarea>
           <input type="text" placeholder="{{restotelephone}}" name="phone" />
           <input type="email" placeholder="{{restoemail}}" name="email" />
@@ -12,10 +12,10 @@
       </div>
     </div>
     <div class="right-panel">
-      <div class="reservation-info">
+      <div class="reservation-info" *ngIf="client$|async as clientresto">
         <h2>Votre réservation ✅</h2>
         <form>
-          <input type="text" placeholder="Nom - Prénom" name="fullname" />
+          <input type="text" placeholder="{{clientresto.prenom}} {{clientresto.nom}}" name="fullname" />
           <input type="text" placeholder="Jour - Heure" name="datetime" />
           <input
             type="number"

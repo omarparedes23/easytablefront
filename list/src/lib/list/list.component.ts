@@ -4,6 +4,7 @@ import { ApiService, LocalService } from '@easy/api';
 import { Irestaurant } from '@easy/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'easy-list',
@@ -14,16 +15,18 @@ import { Router } from '@angular/router';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
-  public restaurantsArray!: Irestaurant[];
+  //public restaurantsArray!: Irestaurant[];
+  public restaurantsArray$!: Observable<Irestaurant[]>;
   constructor(private apiservice: ApiService,private router: Router,private localStore: LocalService) {}
   ngOnInit(): void {
     this.obtenirlistaresto();
   }
   obtenirlistaresto() {
-    this.apiservice.getRestaurants().subscribe((p) => {
+    this.restaurantsArray$=this.apiservice.getRestaurants();
+    /*this.apiservice.getRestaurants().subscribe((p) => {
       console.log(p);
       this.restaurantsArray = p;
-    });
+    });*/
   }
   onLogin(resto:Irestaurant): void {
     //.id,resto.adresse,resto.presentation,resto.telephone,resto.email

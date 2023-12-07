@@ -1,5 +1,5 @@
 <div class="containerlist" >
-  <div class="card mb-3" id="card-list" *ngFor="let resto of restaurantsArray">
+  <div class="card mb-3" id="card-list" *ngFor="let resto of restaurantsArray$|async">
     <div class="row g-0">
       <div class="col-md-4">
         <img src="{{ resto.url }}" class="img-fluid rounded-start" id="img-list" alt="..." />
