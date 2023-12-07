@@ -16,8 +16,11 @@
       <div class="reservation-info" *ngIf="client$|async as clientresto">
         <h2>Votre réservation ✅</h2>
         <form>
+
           <input type="text" placeholder="{{clientresto.prenom}} {{clientresto.nom}}" name="fullname" />
-          <input type="text" placeholder="Jour - Heure" name="datetime" />
+          <input type="text" placeholder="Jour" name="datetime" />
+          <input type="text" placeholder="Heure" name="datetime" />
+
           <input
             type="number"
             placeholder="Nombre de personnes"
