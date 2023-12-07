@@ -12,4 +12,5 @@ import {HeaderComponent} from '@easy/header';
 })
 export class AppComponent {
   title = 'easy';
+  
 }

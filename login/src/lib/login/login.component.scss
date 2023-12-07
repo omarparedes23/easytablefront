@@ -4,6 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: cover;
   height: 100vh;
 }
 
@@ -11,7 +12,6 @@ body {
   width: 100vh;
   padding: 26vh;
   border-radius: 10px;
-
   text-align: center;
   opacity: 0.9;
 }

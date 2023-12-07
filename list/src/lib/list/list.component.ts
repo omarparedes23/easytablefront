@@ -5,11 +5,13 @@ import { Irestaurant } from '@easy/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import {HeaderComponent} from '@easy/header';
+
 
 @Component({
   selector: 'easy-list',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, HeaderComponent],
   providers: [ApiService],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
@@ -30,7 +32,7 @@ export class ListComponent implements OnInit {
   }
   onLogin(resto:Irestaurant): void {
     //.id,resto.adresse,resto.presentation,resto.telephone,resto.email
-    //id: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string 
+    //id: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string
     this.localStore.saveData('restoadresse',resto.adresse);
     this.localStore.saveData('restoid',resto.id.toString());
     this.localStore.saveData('restopresentation',resto.presentation);
@@ -38,6 +40,6 @@ export class ListComponent implements OnInit {
     this.localStore.saveData('restoemail',resto.email);
 
     this.router.navigateByUrl('login');
-  }  
+  }
 
 }
