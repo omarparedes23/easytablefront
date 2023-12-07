@@ -2,25 +2,31 @@
   background: url("./assets/italian-food-concept-with-pasta-space-left.jpg");
   background-size: cover;
   height: 100vh;
+  display: flex;
 };
 
 #bts1 {
-  color: #000000;
-  font-size: 1.5rem;
+  color: #111010;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 150%;
   font-weight: 600;
   padding: 1rem 2rem;
-  border-radius: 1.9rem;
-  margin-top: 31%;
-  margin-left: 15%;
-  background-color: rgb(217, 217, 217);
+  border-radius: 1.1rem;
+  background-color: rgb(237, 231, 231);
   border: none;
   cursor: pointer;
-  transition: 0.5s;
-  opacity: 0.8;
+  transition: 0.2s;
+  height: 8%;
+  margin-top: 27%;
+  margin-left: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #bts1:hover {
-  background-color: rgba(7, 7, 7, 7);
-  transition: 0.5s;
-  color: white;
+  background-color: green;
+  transition: 0.2s;
+  color: rgb(255, 255, 255);
+  transform: scale(0.9);
 }

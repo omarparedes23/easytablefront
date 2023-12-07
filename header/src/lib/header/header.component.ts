@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'easy-header',
@@ -8,4 +9,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit {
+  constructor(private router: Router) {}
+  ngOnInit(): void {
+    console.log('list');
+  }
+  onListeResto(): void {
+    this.router.navigateByUrl('list');
+  }
+  onHome(): void {
+    this.router.navigateByUrl('home');
+  }
+}

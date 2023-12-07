@@ -1,22 +1,23 @@
 import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LocalService } from '@easy/api';
+import {HeaderComponent} from '@easy/header';
 
 @Component({
   selector: 'easy-reservation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.scss',
 })
 export class ReservationComponent implements OnInit {
-  
+
   restoid!:string|null;
   restoadresse!:string|null;
   restopresentation!:string|null;
   restotelephone!:string|null;
   restoemail!:string|null;
-  
+
 
   constructor(private localStore: LocalService) {}
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class ReservationComponent implements OnInit {
     this.restopresentation =  this.localStore.getData('restopresentation');
     this.restotelephone =  this.localStore.getData('restotelephone');
     this.restoemail =  this.localStore.getData('restoemail');
-   
-      
+
+
   }
 }
