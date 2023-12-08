@@ -5,8 +5,7 @@ import { Irestaurant } from '@easy/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import {HeaderComponent} from '@easy/header';
-
+import { HeaderComponent } from '@easy/header';
 
 @Component({
   selector: 'easy-list',
@@ -17,36 +16,20 @@ import {HeaderComponent} from '@easy/header';
   styleUrl: './list.component.scss',
 })
 export class ListComponent implements OnInit {
-  //public restaurantsArray!: Irestaurant[];
   public restaurantsArray$!: Observable<Irestaurant[]>;
-  
-  constructor(private apiservice: ApiService,private router: Router,private localStore: LocalService) {}
+
+  constructor(
+    private apiservice: ApiService,
+    private router: Router,
+    private localStore: LocalService
+  ) {}
   ngOnInit(): void {
-    this.obtenirlistaresto();
-  }
-  obtenirlistaresto() {
-    this.restaurantsArray$=this.apiservice.getRestaurants();
-    console.log(this.restaurantsArray$);
-    /*this.apiservice.getRestaurants().subscribe((p) => {
-      console.log(p);
-      this.restaurantsArray = p;
-    });*/
+    this.restaurantsArray$ = this.apiservice.getRestaurants();
   }
 
-  onLogin(idresto:number): void {
-    //resto:Irestaurant
-    //.id,resto.adresse,resto.presentation,resto.telephone,resto.email
-    //id: number ,restoadresse: string, restopresentation: string,restotelephone: string ,restoemail: string
-
-    /*this.localStore.saveData('restoadresse',resto.rue);
-    this.localStore.saveData('restoid',resto.id.toString());
-    this.localStore.saveData('restopresentation',resto.presentation);
-    this.localStore.saveData('restotelephone',resto.telephone);
-    this.localStore.saveData('restoemail',resto.email);*/
-
-    this.localStore.saveData('restoid',idresto.toString());
+  onLogin(idresto: number): void {
+    this.localStore.saveData('restoid', idresto.toString());
 
     this.router.navigateByUrl('login');
   }
-
 }
