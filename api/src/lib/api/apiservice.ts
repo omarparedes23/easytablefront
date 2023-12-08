@@ -35,20 +35,5 @@ export class ApiService {
   }
   reserverTable(reservationform: FormGroup) {
     return this.http.post<Ireservation>(this.urlApireserver,reservationform.value);
-    /*.subscribe(data => {
-      //this.postId = data.id;
-      console.log(data);
-  })    */
   } 
-  //////////////
-  /*
-  {
-    "clientId":1,        
-    "dateReservation":"01-01-2024",
-    "heureReservation":"23:52",
-    "nombrePersonnes":15,
-   "tablerestaurantId":1
-  }  */  
-  ////////////////////
-
 }
