@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private router: Router) {}
-  ngOnInit(): void {
-    console.log('list');
-  }
+
   onListeResto(): void {
     this.router.navigateByUrl('list');
   }

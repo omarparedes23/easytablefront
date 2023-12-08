@@ -27,9 +27,11 @@ export class ListComponent implements OnInit {
     this.restaurantsArray$ = this.apiservice.getRestaurants();
   }
 
-  onLogin(idresto: number): void {
-    this.localStore.saveData('restoid', idresto.toString());
-
+  onLogin(resto:Irestaurant): void {
+    this.localStore.saveData('restoid', resto.id.toString());
+    this.localStore.saveData('nomresto', resto.nom);
+    this.localStore.saveData('addressresto', resto.rue+" "+resto.ville+" "+resto.codePostal);
+    this.localStore.saveData('telephoneresto', resto.telephone);
     this.router.navigateByUrl('login');
   }
 }

@@ -3,42 +3,63 @@ import { CommonModule } from '@angular/common';
 import { ApiService, Iclient, Irestaurant, LocalService } from '@easy/api';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import {HeaderComponent} from '@easy/header';
+import {
+  FormsModule,
+  ReactiveFormsModule,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'easy-reservation',
   standalone: true,
-  imports: [CommonModule,HttpClientModule,HeaderComponent],
+  imports: [CommonModule,HttpClientModule,HeaderComponent,ReactiveFormsModule,FormsModule],
   providers: [ApiService],
   templateUrl: './reservation.component.html',
   styleUrl: './reservation.component.scss',
 })
 export class ReservationComponent implements OnInit {
-  
+  reservationForm!: FormGroup;
   public client$!: Observable<Iclient>;
   public restaurant$!: Observable<Irestaurant>;
-  
-
-
-
   restoid!:string|null;
-  /*restoadresse!:string|null;
-  restopresentation!:string|null;
-  restotelephone!:string|null;
-  restoemail!:string|null;*/
+  clientid!:string|null;
 
 
-  constructor(private apiservice: ApiService,private router: Router,private localStore: LocalService) {}
+
+  constructor(private apiservice: ApiService,private router: Router,private localStore: LocalService,private formBuilder: FormBuilder) {}
   ngOnInit(): void {
     this.restoid =  this.localStore.getData('restoid');
-    /*this.restoadresse =  this.localStore.getData('restoadresse');
-    this.restopresentation =  this.localStore.getData('restopresentation');
-    this.restotelephone =  this.localStore.getData('restotelephone');
-    this.restoemail =  this.localStore.getData('restoemail');*/
-
-    this.client$=this.apiservice.getClient(1);
+    this.clientid =  this.localStore.getData('clientid');
+    this.client$=this.apiservice.getClient(Number(this.clientid));
     this.restaurant$=this.apiservice.getRestaurant(Number(this.restoid));
 
+    this.reservationForm = this.formBuilder.group({
+      clientId: [null],
+      dateReservation: [null],
+      heureReservation: [null],
+      nombrePersonnes: [null,Validators.required],
+      tablerestaurantId: [null,Validators.required]
+    });    
+
   }
+
+  onSubmitForm() {
+    this.reservationForm.value.clientId=this.clientid?.toString();
+    this.apiservice.reserverTable(this.reservationForm).pipe(take(1)).subscribe(
+      (data) => {console.log(data);
+          this.localStore.saveData('datereservation', this.reservationForm.value.dateReservation);
+          this.localStore.saveData('heurereservation', this.reservationForm.value.heureReservation);
+          this.localStore.saveData('nombrepersonnes', this.reservationForm.value.nombrePersonnes);
+    this.router.navigateByUrl('confirmation');
+  },
+  (error) => {
+    console.log(error);
+  }  
+)
+
+  }  
 }

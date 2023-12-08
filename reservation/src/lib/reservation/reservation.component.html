@@ -3,7 +3,7 @@
   <div class="content-wrapper">
     <div class="left-panel" *ngIf="restaurant$|async as resto">
       <div class="restaurant-info">
-        <h2>La Rotonde 🍽️</h2>
+        <h2>{{resto.nom}} 🍽️</h2>
         <form>
           <input type="text" placeholder="{{resto.rue}}" name="address"  />
           <textarea placeholder="{{resto.presentation}}"></textarea>
@@ -15,18 +15,23 @@
     <div class="right-panel">
       <div class="reservation-info" *ngIf="client$|async as clientresto">
         <h2>Votre réservation ✅</h2>
-        <form>
+        <form [formGroup]="reservationForm">
 
-          <input type="text" placeholder="{{clientresto.prenom}} {{clientresto.nom}}" name="fullname" />
-          <input type="text" placeholder="Jour" name="datetime" />
-          <input type="text" placeholder="Heure" name="datetime" />
+          <input type="text" placeholder="{{clientresto.prenom}} {{clientresto.nom}}" name="fullname" formControlName="clientId"  />
+          <input type="text" placeholder="Jour" name="datetime" formControlName="dateReservation" />
+          <input type="text" placeholder="Heure" name="datetime" formControlName="heureReservation" />
 
           <input
             type="number"
             placeholder="Nombre de personnes"
-            name="guests"
+            name="guests" formControlName="nombrePersonnes"
           />
-          <button type="submit">CONFIRMER</button>
+          <input
+            type="number"
+            placeholder="Table"
+            name="table" formControlName="tablerestaurantId"
+          />          
+          <button (click)="onSubmitForm()" type="submit">CONFIRMER</button>
         </form>
       </div>
     </div>

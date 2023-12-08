@@ -8,9 +8,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
   FormGroup,
-  FormControlState,
   Validators,
-  FormControl,
   FormBuilder,
 } from '@angular/forms';
 import { take } from 'rxjs';
@@ -36,7 +34,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private apiservice: ApiService
+    private apiservice: ApiService,
+    private localStore: LocalService
   ) {}
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -46,19 +45,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitForm() {
-    console.log(this.loginForm.value.email);
-    console.log(this.loginForm.value.motdepasse);
     this.apiservice
-      .getAll(this.loginForm.value.email, this.loginForm.value.motdepasse)
+      .authentifierClient(this.loginForm.value.email, this.loginForm.value.motdepasse)
       .pipe(take(1))
       .subscribe(
         (results) => {
-          console.log('exito');
-          //console.log('Data is received - Result - ', success);
-          console.log(results.email);
           if (results.email === this.loginForm.value.email) {
-            console.log(results.id);
             this.emailinput = true;
+            this.localStore.saveData('clientid', results.id.toString());
             this.router.navigateByUrl('reservation');
           }
         },

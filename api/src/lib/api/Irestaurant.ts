@@ -3,7 +3,7 @@ export interface Irestaurant {
   nom: string;
   rue: string;
   ville: string;
-  code_postal: string;
+  codePostal: string;
   telephone: string;
   email: string;
   presentation: string;

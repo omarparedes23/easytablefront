@@ -1,4 +1,5 @@
 import { Route } from '@angular/router';
+import { ConfirmationComponent } from '@easy/confirmation';
 import { HomeComponent } from '@easy/home';
 import { ListComponent } from '@easy/list';
 import { LoginComponent } from "@easy/login";
@@ -12,5 +13,6 @@ export const appRoutes: Route[] = [
     { path: 'login',component: LoginComponent},
     { path: 'reservation',component: ReservationComponent},
     { path: 'signup',component: SignupComponent},
+    { path: 'confirmation',component: ConfirmationComponent},
     { path: '**', redirectTo: 'home' }
 ];
