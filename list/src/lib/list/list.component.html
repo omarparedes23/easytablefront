@@ -1,21 +1,38 @@
 <easy-header></easy-header>
-<div class="containerlist" >
-  <div class="card mb-3" id="card-list" *ngFor="let resto of restaurantsArray$|async">
+<div class="containerlist">
+  <div
+    class="card mb-3"
+    id="card-list"
+    *ngFor="let resto of restaurantsArray$ | async"
+  >
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="{{ resto.url }}" class="img-fluid rounded-start" id="img-list" alt="..." />
+        <img
+          src="{{ resto.url }}"
+          class="img-fluid rounded-start"
+          id="img-list"
+          alt="..."
+        />
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title"><b>{{ resto.nom }}</b></h5>
+          <h5 class="card-title">
+            <b>{{ resto.nom }}</b>
+          </h5>
           <p class="card-text">{{ resto.presentation }}</p>
-      
+
           <p class="card-text">
             <small class="text-body-secondary">{{
               resto.restaurant_type
             }}</small>
           </p>
-          <button type="button" class="btn btn-primary" id="btn-list" (click)="onLogin(resto)">
+          <a href="menu">Voir Menu</a>
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="btn-list"
+            (click)="onLogin(resto)"
+          >
             Réserver
           </button>
         </div>

@@ -46,7 +46,10 @@ export class LoginComponent implements OnInit {
 
   onSubmitForm() {
     this.apiservice
-      .authentifierClient(this.loginForm.value.email, this.loginForm.value.motdepasse)
+      .authentifierClient(
+        this.loginForm.value.email,
+        this.loginForm.value.motdepasse
+      )
       .pipe(take(1))
       .subscribe(
         (results) => {
@@ -57,9 +60,12 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          console.log(error)
+          console.log(error);
           this.router.navigateByUrl('login');
         }
       );
+  }
+  onCreationForm() {
+    this.router.navigateByUrl('signup');
   }
 }

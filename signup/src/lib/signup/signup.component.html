@@ -1,7 +1,7 @@
 <easy-header></easy-header>
 <div class="container-signup">
   <div class="form-container">
-    <form id="signup-form">
+    <form id="signup-form" [formGroup]="signupForm">
       <div class="columns">
         <div class="column-left">
           <div class="form-group">
@@ -12,6 +12,7 @@
               name="lastName"
               maxlength="30"
               required
+              formControlName="nom"
             />
           </div>
           <div class="form-group">
@@ -22,6 +23,7 @@
               name="firstName"
               maxlength="30"
               required
+              formControlName="prenom"
             />
           </div>
           <div class="form-group">
@@ -32,6 +34,7 @@
               name="email"
               maxlength="50"
               required
+              formControlName="email"
             />
           </div>
           <div class="form-group">
@@ -42,6 +45,7 @@
               name="password"
               maxlength="30"
               required
+              formControlName="motDePasse"
             />
           </div>
           <div class="form-group">
@@ -64,11 +68,19 @@
               name="street"
               maxlength="200"
               required
+              formControlName="rue"
             />
           </div>
           <div class="form-group">
             <label for="city">Ville:</label>
-            <input type="text" id="city" name="city" maxlength="100" required />
+            <input
+              type="text"
+              id="city"
+              name="city"
+              maxlength="100"
+              required
+              formControlName="ville"
+            />
           </div>
           <div class="form-group">
             <label for="postalCode">Code Postal:</label>
@@ -78,13 +90,21 @@
               name="postalCode"
               maxlength="5"
               required
+              formControlName="codePostal"
             />
           </div>
           <div class="form-group">
             <label for="phone">Téléphone:</label>
-            <input type="tel" id="phone" name="phone" maxlength="20" required />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              maxlength="20"
+              required
+              formControlName="telephone"
+            />
           </div>
-          <button type="submit">S'inscrire</button>
+          <button (click)="onSubmitForm()" type="submit">S'inscrire</button>
         </div>
       </div>
     </form>

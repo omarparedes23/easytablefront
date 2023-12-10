@@ -21,6 +21,7 @@
       "@easy/home": ["home/src/index.ts"],
       "@easy/list": ["list/src/index.ts"],
       "@easy/login": ["login/src/index.ts"],
+      "@easy/menu": ["menu/src/index.ts"],
       "@easy/reservation": ["reservation/src/index.ts"],
       "@easy/signup": ["signup/src/index.ts"]
     }
