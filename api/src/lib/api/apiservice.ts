@@ -12,19 +12,22 @@ import { FormGroup } from '@angular/forms';
 })
 export class ApiService {
   //private urlApi = 'http://localhost:9000/employees';
-  //private urlApirestaurants = 'http://localhost:9000/restaurants';
-  private urlApirestaurants =
-    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant/restaurants';
+  private urlApirestaurants = 'http://localhost:9000/restaurant/restaurants';
+  //private urlApirestaurants =   'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant/restaurants';
+  
   //private urlApiclients = 'http://localhost:9000/clients';
-  //  private urlApiclient = 'http://localhost:9000/client/1';
-  private urlApiclient =
-    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/1';
-  //private urlApireserver = 'http://localhost:9000/reservation/reserver';
-  private urlApireserver =
-    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/reservation/reserver';
-  //  private urlApisignup = 'http://localhost:9000/client/creerCompte';
-  private urlApisignup =
-    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/creerCompte';
+    private urlApiclient = 'http://localhost:9000/client/1';
+  //private urlApiclient =    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/1';
+
+  private urlApireserver = 'http://localhost:9000/reservation/reserver';
+  //private urlApireserver =     'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/reservation/reserver';
+
+    private urlApisignup = 'http://localhost:9000/client/creerCompte';
+  //private urlApisignup =     'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/creerCompte';
+
+  //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant
+  //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT
+  //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT
 
   constructor(private http: HttpClient) {}
 
@@ -33,17 +36,17 @@ export class ApiService {
   }
   getRestaurant(id: number): Observable<Irestaurant> {
     return this.http.get<Irestaurant>(
-      `http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant/${id}`
+      `http://localhost:9000/restaurant/${id}`
     );
   }
   getClient(id: number): Observable<Iclient> {
     return this.http.get<Iclient>(
-      `http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/${id}`
+      `http://localhost:9000/client/${id}`
     );
   }
   authentifierClient(email: string, motdepasse: string) {
     return this.http.get<Iclient>(
-      `http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/${email}/${motdepasse}`
+      `http://localhost:9000/client/${email}/${motdepasse}`
     );
   }
   reserverTable(reservationform: FormGroup) {
