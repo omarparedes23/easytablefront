@@ -11,31 +11,40 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root',
 })
 export class ApiService {
-  //private urlApi = 'http://localhost:9000/employees';
+  //urlIp: string = 'http://127.0.0.1:9000';
+  urlIp: string = 'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT';
+
+  //private urlApi = 'http://127.0.0.1:9000/employees';
 
   //private urlApirestaurants = 'http://localhost:9000/restaurant/restaurants';
   //private urlApirestaurants =   'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant/restaurants';
-  private urlApirestaurants =   'http://localhost:8080/easytable-0.0.1-SNAPSHOT/restaurant/restaurants';
-  
-  //private urlApiclients = 'http://localhost:9000/clients';
+  //private urlApirestaurants =    'http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT/restaurant/restaurants';
+  private urlApirestaurants = this.urlIp + '/restaurant/restaurants';
 
+  //private urlApiclients = 'http://localhost:9000/clients';
   //private urlApiclient = 'http://localhost:9000/client/1';
   //private urlApiclient =    'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/1';
-  private urlApiclient =    'http://localhost:8080/easytable-0.0.1-SNAPSHOT/client/1';
+  //private urlApiclient =    'http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT/client/1';
+  private urlApiclient = this.urlIp + '/client/1';
 
   //private urlApireserver = 'http://localhost:9000/reservation/reserver';
   //private urlApireserver =     'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/reservation/reserver';
-  private urlApireserver =     'http://localhost:8080/easytable-0.0.1-SNAPSHOT/reservation/reserver';
+  //private urlApireserver =    'http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT/reservation/reserver';
+  private urlApireserver = this.urlIp + '/reservation/reserver';
 
-    //private urlApisignup = 'http://localhost:9000/client/creerCompte';
+  //private urlApisignup = 'http://localhost:9000/client/creerCompte';
   //private urlApisignup =     'http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/client/creerCompte';
-  private urlApisignup =     'http://localhost:8080/easytable-0.0.1-SNAPSHOT/client/creerCompte';
+  //private urlApisignup =    'http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT/client/creerCompte';
+  private urlApisignup = this.urlIp + '/client/creerCompte';
 
   //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT/restaurant
   //http://localhost:9000/restaurant/${id}
 
   //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT
   //http://52.47.152.220:8080/easytable-0.0.1-SNAPSHOT
+  //http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT
+  //http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT
+  //http://127.0.0.1:8080/easytable-0.0.1-SNAPSHOT
 
   constructor(private http: HttpClient) {}
 
@@ -43,18 +52,14 @@ export class ApiService {
     return this.http.get<Irestaurant[]>(this.urlApirestaurants);
   }
   getRestaurant(id: number): Observable<Irestaurant> {
-    return this.http.get<Irestaurant>(
-      `http://localhost:8080/easytable-0.0.1-SNAPSHOT/restaurant/${id}`
-    );
+    return this.http.get<Irestaurant>(this.urlIp + `/restaurant/${id}`);
   }
   getClient(id: number): Observable<Iclient> {
-    return this.http.get<Iclient>(
-      `http://localhost:8080/easytable-0.0.1-SNAPSHOT/client/${id}`
-    );
+    return this.http.get<Iclient>(this.urlIp + `/client/${id}`);
   }
   authentifierClient(email: string, motdepasse: string) {
     return this.http.get<Iclient>(
-      `http://localhost:8080/easytable-0.0.1-SNAPSHOT/client/${email}/${motdepasse}`
+      this.urlIp + `/client/${email}/${motdepasse}`
     );
   }
   reserverTable(reservationform: FormGroup) {
